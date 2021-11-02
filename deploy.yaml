@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-deployment
+  labels:
+    name: nodejs-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nodejs-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nodejs-deployment
+    spec:
+      containers:
+      - name: node-web-app
+        image: akeem35/node-web-app:1.0.2
+        ports:
+        - containerPort: 8080
